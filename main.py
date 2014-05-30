@@ -10,10 +10,19 @@ def main():
     with open("tigger.ascii", 'r') as tigger:
         for line in tigger:
             sys.stderr.write(line)
-    pass
+
+    # Open contig fasta file and gap file for writing
+    # Open input fasta file for reading
+
+    # Read fasta
+
+    # For each sequence, separate into contigs
+        # Write contigs to contig fasta file
+        # Write gap lengths to gap file
 
 
-
+    # Close input fasta file
+    # Close contig fasta file and gap file
 
 
 
