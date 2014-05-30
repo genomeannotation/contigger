@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import re
 
 class Sequence:
 
@@ -30,4 +31,13 @@ def read_fasta(io_buffer):
     # Add the last sequence
     seqs[header] = Sequence(header, bases)
     return seqs
+
+def split_up_a_sequence(seq, min_gap_len):
+    """Returns a list of N contigs and N-1 gaps which comprise a sequence."""
+    # Regular expression which matches 'min_gap_len' or more N's or n's
+    pattern = re.compile("[Nn]{"+str(min_gap_len)+",}")
+    contigs = re.split(pattern, seq)
+    print(contigs)
+    gaps = re.findall(pattern, seq)
+    return contigs, gaps
 

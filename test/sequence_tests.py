@@ -2,7 +2,7 @@
 
 import unittest
 import io
-from src.sequence import Sequence, read_fasta
+from src.sequence import Sequence, read_fasta, split_up_a_sequence
 
 class TestSequence(unittest.TestCase):
 
@@ -30,6 +30,15 @@ class TestSequence(unittest.TestCase):
         self.assertEquals('seq_2', seqs["seq_2"].header)
         self.assertEquals('NNNNNNNNGATTACAGATTACAGATTACANNNNNNNNNNN', seqs["seq_2"].bases)
         
+    def test_split_up_a_sequence(self):
+        testseq = "GATTACAnnNNACTACTnnnNNNGANAGA"
+        expected_contigs = ["GATTACA", "ACTACT", "GANAGA"]
+        expected_gaps = ["nnNN", "nnnNNN"]
+        contigs, gaps = split_up_a_sequence(testseq, 4)
+        self.assertEqual(contigs, expected_contigs)
+        self.assertEqual(gaps, expected_gaps)
+
+
 ##########################
 def suite():
     suite = unittest.TestSuite()
