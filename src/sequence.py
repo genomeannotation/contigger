@@ -41,3 +41,8 @@ def split_up_a_sequence(seq, min_gap_len):
     gaps = re.findall(pattern, seq)
     return contigs, gaps
 
+def get_seq_number(header):
+    pattern = re.compile("[0-9]+")
+    m = re.search(pattern, header)
+    if m:
+        return m.group()

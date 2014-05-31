@@ -2,7 +2,7 @@
 
 import unittest
 import io
-from src.sequence import Sequence, read_fasta, split_up_a_sequence
+from src.sequence import Sequence, read_fasta, split_up_a_sequence, get_seq_number
 
 class TestSequence(unittest.TestCase):
 
@@ -38,6 +38,11 @@ class TestSequence(unittest.TestCase):
         self.assertEqual(contigs, expected_contigs)
         self.assertEqual(gaps, expected_gaps)
 
+    def test_get_seq_number(self):
+        header = "Scaffold00073"
+        expected = "00073"
+        actual = get_seq_number(header)
+        self.assertEqual(expected, actual)
 
 ##########################
 def suite():

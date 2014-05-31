@@ -29,13 +29,18 @@ def main():
     # For each sequence, separate into contigs and gaps
     for seq in seqs:
         contigs, gaps = split_up_a_sequence(seq.bases, MINIMUM_GAP_LENGTH)
+        seq_number = get_seq_number(seq.header)
         # Write contigs to contig fasta file
+        for i, contig in contigs:
+            outfasta.write(">contig" + seq_number + "." + str(i+1) + "\n")
+            outfasta.write(contig + "\n")
         # Write gap lengths to gap file
+        for i, gap in gaps:
+            outgap.write("contig" + seq_number + "." + str(i+1) + "\t" + str(len(gap)))
 
-
-    # Close input fasta file
     # Close contig fasta file and gap file
-
+    close(outfasta)
+    close(outgap)
 
 
 
