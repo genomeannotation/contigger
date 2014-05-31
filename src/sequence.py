@@ -37,7 +37,6 @@ def split_up_a_sequence(seq, min_gap_len):
     # Regular expression which matches 'min_gap_len' or more N's or n's
     pattern = re.compile("[Nn]{"+str(min_gap_len)+",}")
     contigs = re.split(pattern, seq)
-    print(contigs)
     gaps = re.findall(pattern, seq)
     return contigs, gaps
 
