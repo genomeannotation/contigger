@@ -12,7 +12,7 @@ outgapfile = "out.gap"
 
 def main():
     # Print picture
-    with open("tigger.ascii", 'r') as tigger:
+    with open("res/tigger.ascii", 'r') as tigger:
         for line in tigger:
             sys.stderr.write(line)
     
