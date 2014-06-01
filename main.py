@@ -32,11 +32,11 @@ def main():
         seq_number = get_seq_number(seq.header)
         # Write contigs to contig fasta file
         for i, contig in enumerate(contigs):
-            outfasta.write(">contig" + seq_number + "." + str(i+1) + "\n")
+            outfasta.write(">Contig" + seq_number + "." + str(i+1) + "\n")
             outfasta.write(contig + "\n")
         # Write gap lengths to gap file
         for i, gap in enumerate(gaps):
-            outgap.write("contig" + seq_number + "." + str(i+1) + "\t" + str(len(gap)) + "\n")
+            outgap.write("Contig" + seq_number + "." + str(i+1) + "\t" + str(len(gap)) + "\n")
 
     # Close contig fasta file and gap file
     outfasta.close()
