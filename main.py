@@ -36,7 +36,7 @@ def main():
             outfasta.write(contig + "\n")
         # Write gap lengths to gap file
         for i, gap in enumerate(gaps):
-            outgap.write("contig" + seq_number + "." + str(i+1) + "\t" + str(len(gap)))
+            outgap.write("contig" + seq_number + "." + str(i+1) + "\t" + str(len(gap)) + "\n")
 
     # Close contig fasta file and gap file
     outfasta.close()
