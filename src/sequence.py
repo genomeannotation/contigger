@@ -32,6 +32,10 @@ def read_fasta(io_buffer):
     seqs[header] = Sequence(header, bases)
     return seqs
 
+def write_fasta(io_buffer, seqs):
+    for seq in seqs.values():
+        io_buffer.write(">"+seq.header+"\n"+seq.bases+"\n")
+
 def split_up_a_sequence(seq, min_gap_len):
     """Returns a list of N contigs and N-1 gaps which comprise a sequence."""
     # Regular expression which matches 'min_gap_len' or more N's or n's
